@@ -1,0 +1,10 @@
+/** @format */
+
+* {
+  padding: 1rem;
+  margin: 1rem;
+  border: none;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  background-color: #065a5c76;
+}

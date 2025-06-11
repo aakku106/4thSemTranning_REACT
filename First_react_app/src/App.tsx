@@ -1,11 +1,9 @@
 /** @format */
-
-import Message from "./Message";
-
+import GroupList from "./components/GroupList";
 function App() {
   return (
     <>
-      <Message />
+      <GroupList />
     </>
   );
 }
