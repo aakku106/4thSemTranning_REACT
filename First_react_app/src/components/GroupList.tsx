@@ -1,19 +1,23 @@
 /** @format */
+interface Props {
+  list: string[];
+  heading: string;
+}
 
 import { useState } from "react";
 
-function GroupList() {
+function GroupList(Props: Props) {
   // list = [];
-  let list = ["cat", "dog", "rat", "cow", "chimp", "graf"];
   // hook : state hook
   const [sleetedIndex, setSelectedIndex] = useState(-1);
   return (
     <>
+      <h1>{Props.heading}</h1>
       <ul>
         {/* {list.length === 0 ? <p>No item in List</p> : null} */}
-        {list.length === 0 && <p>No item in List</p>}
+        {Props.list.length === 0 && <p>No item in List</p>}
         {/* // this let us write a concise code */}
-        {list.map((item, index) => (
+        {Props.list.map((item, index) => (
           <li
             key={item}
             onClick={() => {
