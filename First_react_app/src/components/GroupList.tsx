@@ -1,8 +1,8 @@
 /** @format */
 
 function GroupList() {
-  let list = ["cat", "dog", "rat", "cow", "chimp", "graf"];
   // list = [];
+  let list = ["cat", "dog", "rat", "cow", "chimp", "graf"];
 
   return (
     <>
@@ -13,7 +13,7 @@ function GroupList() {
         {list.map((item, index) => (
           <li
             key={item}
-            onClick={(event) => console.log(item, index, "\n", event)}
+            onClick={() => console.log(item, index)}
             className="ccn">
             {item}
           </li>
