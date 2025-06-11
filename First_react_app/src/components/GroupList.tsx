@@ -6,18 +6,18 @@ interface Props {
 
 import { useState } from "react";
 
-function GroupList(Props: Props) {
+function GroupList({ list, heading }: Props) {
   // list = [];
   // hook : state hook
   const [sleetedIndex, setSelectedIndex] = useState(-1);
   return (
     <>
-      <h1>{Props.heading}</h1>
+      <h1>{heading}</h1>
       <ul>
         {/* {list.length === 0 ? <p>No item in List</p> : null} */}
-        {Props.list.length === 0 && <p>No item in List</p>}
+        {list.length === 0 && <p>No item in List</p>}
         {/* // this let us write a concise code */}
-        {Props.list.map((item, index) => (
+        {list.map((item, index) => (
           <li
             key={item}
             onClick={() => {
