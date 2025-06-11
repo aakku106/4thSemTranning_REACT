@@ -1,9 +1,12 @@
 /** @format */
 
+import { useState } from "react";
+
 function GroupList() {
   // list = [];
   let list = ["cat", "dog", "rat", "cow", "chimp", "graf"];
-
+  // hook : state hook
+  const [sleetedIndex, setSelectedIndex] = useState(-1);
   return (
     <>
       <ul>
@@ -13,8 +16,10 @@ function GroupList() {
         {list.map((item, index) => (
           <li
             key={item}
-            onClick={() => console.log(item, index)}
-            className="ccn">
+            onClick={() => {
+              setSelectedIndex(index);
+            }}
+            className={sleetedIndex === index ? "active" : "null"}>
             {item}
           </li>
         ))}

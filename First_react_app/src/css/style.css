@@ -24,3 +24,7 @@ body {
     background: radial-gradient(rgba(0, 0, 255, 0.213), rgba(255, 0, 0, 0.053));
   }
 }
+
+.active {
+  background-color: rgba(15, 95, 233, 0.382);
+}
