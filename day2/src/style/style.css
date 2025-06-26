@@ -1,6 +1,7 @@
 /** @format */
 
 @import "tailwindcss";
+
 * {
   transition: all 0.3s ease-in-out;
   border-radius: 12px;
@@ -11,9 +12,11 @@
 
 div {
   margin: auto;
+
   button {
     background-color: #857979;
   }
+
   & button {
     margin: 1rem;
   }
