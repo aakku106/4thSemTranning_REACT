@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 
 export const Calc = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(106);
 
   return (
     <>
@@ -11,7 +11,7 @@ export const Calc = () => {
       <div className="text-center ">
         <button onClick={() => setCount(count + 1)}>Add</button>
         <button onClick={() => setCount(count - 1)}>Sub</button>
-        <button onClick={() => setCount(0)}>Reset</button>
+        <button onClick={() => setCount(106)}>Reset</button>
       </div>
     </>
   );
