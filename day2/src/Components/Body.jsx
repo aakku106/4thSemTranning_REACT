@@ -2,11 +2,18 @@
 
 import { Student } from "./Student";
 import { Calc } from "./IncDec";
+import PackingList from "./ConditionalRendering.jsx"
+import { Run } from "./Timepass.jsx"
 export let Body = () => {
   return (
     <>
       <h1 className="mt-0 text-center bg-red-100">hello CCn!!!</h1>
       <article className="h-160">
+
+        <Run />
+
+        <PackingList />
+
         <Calc />
         <Greeting FirstName={"Adarasha"} LastName={"Gaihre"} />
         <Student name={"aakku"} rollNo={16} facility={"csit"} />
