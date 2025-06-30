@@ -1,24 +1,81 @@
-/** @format */
-
-
 @import "tailwindcss";
 
-* {
-  transition: all 0.3s ease-in-out;
-  border-radius: 12px;
-  padding: 1.4rem;
-  /* margin: 1rem; */
-  text-align: center;
+.bg-wrapper {
+  background: linear-gradient(135deg, #5d5dbece, #2d003fbf);
+  min-height: 100vh;
+  color: white;
 }
 
-div {
-  margin: auto;
+.dropdown {
+  background-color: #2e2e3e51;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.6rem;
+  border: 1px solid #555;
+  margin-bottom: 2rem;
+}
 
-  button {
-    background-color: #857979;
-  }
+.waterfall {
+  column-count: 1;
+  column-gap: 1rem;
+}
 
-  & button {
-    margin: 1rem;
+@media (min-width: 640px) {
+  .waterfall {
+    column-count: 2;
   }
+}
+
+@media (min-width: 1024px) {
+  .waterfall {
+    column-count: 3;
+  }
+}
+
+.card {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px 0 rgba(149, 51, 214, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.025);
+  box-shadow: 0 12px 40px rgba(149, 51, 214, 0.7);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  color: #22ff00;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.buy-btn {
+  background-color: #9dd63360;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: #50df489b;
+  }
+}
+
+footer {
+  bottom: 0 !important;
 }
