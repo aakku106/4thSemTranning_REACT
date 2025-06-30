@@ -30,13 +30,12 @@ export let Todo = () => {
         placeholder="Search task..."
         value={searchText}
         onChange={(e) => SearchText(e.target.value)}
-        style={{ marginBottom: "1rem", padding: "5px" }}
       />
 
       <div style={{ marginBottom: "1rem" }}>
-        <button onClick={() => Filter("all")}>Show All 📃</button>
-        <button onClick={() => Filter("done")}>Completed ✅</button>
-        <button onClick={() => Filter("pending")}>Pending ❌</button>
+        <button onClick={() => Filter("all")}>Show All</button>
+        <button onClick={() => Filter("done")}> ✅</button>
+        <button onClick={() => Filter("pending")}>❌</button>
       </div>
 
       <ul>

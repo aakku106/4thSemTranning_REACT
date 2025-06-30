@@ -5,11 +5,13 @@ import { Calc } from "./IncDec";
 import PackingList from "./ConditionalRendering.jsx"
 import { Run } from "./Timepass.jsx"
 import { Todo } from "./Todo.jsx"
+import { Products } from "./Products.jsx"
 
 export let Body = () => {
   return (
     <>
       <article className="h-160">
+        <Products />
         <Todo />
         <Greeting FirstName={"Adarasha"} LastName={"Gaihre"} />
         <Student name={"aakku"} rollNo={16} facility={"csit"} />
