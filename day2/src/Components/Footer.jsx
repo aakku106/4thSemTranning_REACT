@@ -1,5 +1,3 @@
-/** @format */
-
 export const Footer = () => {
   return (
     <>
@@ -8,7 +6,7 @@ export const Footer = () => {
           <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
             © 2025{" "}
             <a href="#" className="hover:underline">
-              Flowbite™
+              Adarasha™
             </a>
             . All Rights Reserved.
           </span>
