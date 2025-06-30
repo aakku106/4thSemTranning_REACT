@@ -1,3 +1,4 @@
+import { useState } from "react";
 
 export let Todo = () => {
   const data = [
@@ -6,20 +7,32 @@ export let Todo = () => {
     { id: 3, text: "laern js", status: false },
     { id: 4, text: "laern C#", status: true },
     { id: 5, text: "laern weee", status: false },
-    { id: 5, text: "laern cat", status: true },
-  ]
+    { id: 6, text: "laern cat", status: true },
+  ];
 
+  const [filter, setFilter] = useState("all");
+
+  const filteredData = data.filter((todo) => {
+    if (filter === "done") return todo.status === true;
+    if (filter === "pending") return todo.status === false;
+    return true;
+  });
 
   return (
     <>
+      <div style={{ marginBottom: "1rem" }}>
+        <button onClick={() => setFilter("all")}>Show All 📃</button>
+        <button onClick={() => setFilter("done")}>Completed ✅</button>
+        <button onClick={() => setFilter("pending")}>Pending ❌</button>
+      </div>
+
       <ul>
-        {
-          data.map((value, index) => (
-            <li key={index}>{value.text} {value.status ? '✅' : '❌'} </li>
-          ))
-        }
+        {filteredData.map((value) => (
+          <li key={value.id}>
+            {value.text} {value.status ? "✅" : "❌"}
+          </li>
+        ))}
       </ul>
     </>
-  )
-
-}
+  );
+};
