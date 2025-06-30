@@ -10,20 +10,33 @@ export let Todo = () => {
     { id: 6, text: "laern cat", status: true },
   ];
 
-  const [filter, setFilter] = useState("all");
+  const [filter, Filter] = useState("all");
+  const [searchText, SearchText] = useState("");
 
-  const filteredData = data.filter((todo) => {
-    if (filter === "done") return todo.status === true;
-    if (filter === "pending") return todo.status === false;
-    return true;
-  });
+  const filteredData = data
+    .filter((todo) => {
+      if (filter === "done") return todo.status === true;
+      if (filter === "pending") return todo.status === false;
+      return true;
+    })
+    .filter((todo) =>
+      todo.text.toLowerCase().includes(searchText.toLowerCase())
+    );
 
   return (
     <>
+      <input
+        type="text"
+        placeholder="Search task..."
+        value={searchText}
+        onChange={(e) => SearchText(e.target.value)}
+        style={{ marginBottom: "1rem", padding: "5px" }}
+      />
+
       <div style={{ marginBottom: "1rem" }}>
-        <button onClick={() => setFilter("all")}>Show All 📃</button>
-        <button onClick={() => setFilter("done")}>Completed ✅</button>
-        <button onClick={() => setFilter("pending")}>Pending ❌</button>
+        <button onClick={() => Filter("all")}>Show All 📃</button>
+        <button onClick={() => Filter("done")}>Completed ✅</button>
+        <button onClick={() => Filter("pending")}>Pending ❌</button>
       </div>
 
       <ul>
