@@ -17,16 +17,21 @@ const data = [
 ];
 
 export let Products = () => {
-  const [ProductFilter, setProductFilter] = useState("all");
+  const [ProductFilter, setProductFilter] = useState("All");
+  const [SearchText, setSearchText] = useState("");
 
   const FilterProduct = data.filter((i) => {
-    if (ProductFilter === "topWear") return i.catagory === "topWear"
-    else if (ProductFilter === "vegi") return i.catagory === "vegi"
-    else if (ProductFilter === "footWares") return i.catagory === "footWares"
-    else if (ProductFilter === "MotorBike") return i.catagory === "MotorBike"
-    else if (ProductFilter === "car") return i.catagory === "car"
-    else return i.catagory
+    if (ProductFilter === "topWear") return i.catagory === "topWear";
+    else if (ProductFilter === "vegi") return i.catagory === "vegi";
+    else if (ProductFilter === "footWares") return i.catagory === "footWares";
+    else if (ProductFilter === "MotorBike") return i.catagory === "MotorBike";
+    else if (ProductFilter === "car") return i.catagory === "car";
+    else return true;
   });
+
+  const search = FilterProduct.filter((i) =>
+    i.name.toLowerCase().includes(SearchText.toLowerCase())
+  );
 
   return (
     <div className="p-6 bg-wrapper">
@@ -35,20 +40,54 @@ export let Products = () => {
         onChange={(e) => setProductFilter(e.target.value)}
       >
         {Catagory.map((value, index) => (
-          <option key={index} value={value} onClick={() => setProductFilter(`${value}`)} >
+          <option key={index} value={value}>
             {value}
           </option>
         ))}
       </select>
 
+      <input
+        type="text"
+        placeholder="Search item..."
+        value={SearchText}
+        onChange={(e) => setSearchText(e.target.value)}
+        className="dropdown"
+      />
+
       <div className="waterfall">
-        {FilterProduct.map((value) => (
-          <div key={value.id} className="card">
-            <h5 className="title">{value.name}</h5>
-            <p className="price">Price: Rs {value.price}</p>
-            <button className="buy-btn">Buy Now</button>
-          </div>
-        ))}
+        {SearchText !== "" && (
+          <>
+            <h4>Search Results:</h4>
+            {search.length === 0 ? (
+              <p>No item found</p>
+            ) : (
+              search.map((i) => (
+                <div key={i.id} className="card">
+                  <h5 className="title">{i.name}</h5>
+                  <p className="price">Price: Rs {i.price}</p>
+                  <button className="buy-btn">Buy Now</button>
+                </div>
+              ))
+            )}
+          </>
+        )}
+
+        {SearchText === "" && (
+          <>
+            <h4>Filtered Category:</h4>
+            {FilterProduct.length === 0 ? (
+              <p>No item found</p>
+            ) : (
+              FilterProduct.map((value) => (
+                <div key={value.id} className="card">
+                  <h5 className="title">{value.name}</h5>
+                  <p className="price">Price: Rs {value.price}</p>
+                  <button className="buy-btn">Buy Now</button>
+                </div>
+              ))
+            )}
+          </>
+        )}
       </div>
     </div>
   );
