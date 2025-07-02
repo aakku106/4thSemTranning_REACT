@@ -2,6 +2,10 @@
 
 @import "tailwindcss";
 
+* {
+  border-radius: 12px;
+}
+
 .bg-wrapper {
   background: linear-gradient(135deg, #5d5dbece, #2d003fbf);
   min-height: 100vh;
