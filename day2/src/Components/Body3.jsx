@@ -1,4 +1,5 @@
 import { Button } from "./Button.jsx"
+import { ParentComp } from "./ParentComp.jsx"
 
 export let Body3 = () => {
   const submision = {
@@ -6,7 +7,6 @@ export let Body3 = () => {
     color: "green",
     fontSize: "2em",
   }
-
 
   const click = {
     backgroundColor: "green",
@@ -19,10 +19,6 @@ export let Body3 = () => {
     color: "gray",
     fontSize: "2em"
   }
-
-
-
-
 
   return (
     <>
