@@ -3,7 +3,7 @@ import { Task } from "./project3/Task.jsx"
 export let ToDo = () => {
   return (
     <>
-      <TODO />
+      <Task />
     </>
   )
 }
