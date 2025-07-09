@@ -9,7 +9,8 @@ import { PlayGround } from "./Components/PlayGround1.jsx";
 import { Body2 } from "./Components/Body2.jsx";
 import { Body3 } from "./Components/Body3.jsx";
 import { Body4 } from "./Components/ClaughterLessCall.jsx";
-import { ToDo } from "./Components/NewTodo.jsx"
+import { ToDo } from "./Components/NewTodo.jsx";
+import { ProjectFour } from "./Components/Project4.jsx";
 let App = () => {
 
 
@@ -20,8 +21,9 @@ let App = () => {
 
       <main className="flex-grow">
         {/* <Body />         <Body2 />
-        <Body3 />        <Body4 />*/}
-        <ToDo />
+        <Body3 />        <Body4 />        <ToDo />*/}
+
+        <ProjectFour />
 
       </main>
       <Footer />

@@ -99,3 +99,9 @@ footer {
   border: 10px double rgba(154, 12, 59, 0.317);
   pointer-events: none !important;
 }
+
+.fixSpace {
+  padding: 1rem;
+  margin: 1rem;
+
+}
