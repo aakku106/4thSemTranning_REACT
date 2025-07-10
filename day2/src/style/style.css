@@ -105,3 +105,7 @@ footer {
   margin: 1rem;
 
 }
+
+.snake {
+  transition: all .3s ease-out;
+}

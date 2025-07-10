@@ -26,6 +26,12 @@ export const Calc = () => {
     }
   }, [])
 
+
+  useEffect(() => {
+    if (value === "") document.title = `Welcome`;
+    else document.title = `Hey ${value}`
+  }, [value])
+
   return (
     <>
       <p className="text-center">{count}-----{c2}</p>
@@ -40,12 +46,10 @@ export const Calc = () => {
 
 
         <h1>{locTime}</h1>
-        <h1>
-          {value === "" ? `Welcome ` : `Hellow${value}`}
-        </h1>
+
         <input type="text" name="" placeholder="Input Topic" id="" onChange={(e) => {
 
-          setValue(e)
+          setValue(e.target.value)
 
         }} />
       </div >
