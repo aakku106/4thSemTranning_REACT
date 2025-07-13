@@ -5,24 +5,23 @@ export let KeyMove = () => {
   useEffect(() => {
     function handlePress(e) {
       let newPos = { ...position }
-      if (106) {
-        if (e.key === "ArrowUp") {
-          newPos.y -= 30;
-          setPosition(newPos);
-        }
-        else if (e.key === "ArrowDown") {
-          console.log(e.key)
-          newPos.y += 30
-          setPosition(newPos)
-        }
-        else if (e.key === "ArrowRight") {
-          newPos.x += 30;
-          setPosition(newPos)
-        }
-        else if (e.key === "ArrowLeft") {
-          newPos.x -= 30
-          setPosition(newPos)
-        }
+      if (e.key === "ArrowUp") {
+        //        newPos.y -= 30;
+        newPos.y -= Math.max(-450, newPos.y - 30)
+        setPosition(newPos);
+      }
+      else if (e.key === "ArrowDown") {
+        console.log(e.key)
+        newPos.y += 30
+        setPosition(newPos)
+      }
+      else if (e.key === "ArrowRight") {
+        newPos.x += 30;
+        setPosition(newPos)
+      }
+      else if (e.key === "ArrowLeft") {
+        newPos.x -= 30
+        setPosition(newPos)
       }
     }
     window.addEventListener("keydown", handlePress);
@@ -49,7 +48,7 @@ export let KeyMove = () => {
           position: "absolute",
           top: `50%`,
           left: `50%`,
-          transform: `translate(${position.x}%, ${position.y}%)`,
+          transform: `translate(${position.x}px, ${position.y}px)`,
         }}
       ></div>
     </div >
