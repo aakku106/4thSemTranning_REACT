@@ -11,6 +11,32 @@
   border: 10px double rgba(154, 12, 59, 0.317);
   pointer-events: none !important;
 }
+
 .snake {
-  box-shadow: 0px 0px 20px 4px;
+  box-shadow: 0px 0px 20px 4px rgb(253, 253, 253);
+  height: 15px;
+  width: 15px;
+  background-color: transparent;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  z-index: 0;
+  transition: all 10ms ease-in-out;
+}
+
+.Board {
+  border: 2px solid #000000;
+  background: radial-gradient(
+    rgba(255, 255, 255, 0.48),
+    rgba(255, 0, 0, 0.441),
+    rgba(255, 255, 0, 0.467),
+    rgba(0, 128, 0, 0.477)
+  );
+  margin: 20px auto;
+  overflow: hidden;
+  z-index: 1;
+  height: 500px;
+  width: 500px;
+  position: relative;
 }

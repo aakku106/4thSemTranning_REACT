@@ -1,7 +1,6 @@
 /** @format */
 
 import { useState } from "react";
-import "./style/style.css";
 import { NavBar } from "./Components/navBar.jsx";
 import { Body, Greeting } from "./Components/Body.jsx";
 import { Footer } from "./Components/Footer.jsx";
@@ -11,11 +10,8 @@ import { Body3 } from "./Components/Body3.jsx";
 import { Body4 } from "./Components/ClaughterLessCall.jsx";
 import { ToDo } from "./Components/NewTodo.jsx";
 import { ProjectFour } from "./Components/Project4.jsx";
-import { KeyMove } from "./Components/KeyMove.jsx"
+import { KeyMove } from "./Components/KeyMove.jsx";
 let App = () => {
-
-
-
   return (
     <div className="min-h-screen flex flex-col">
       <NavBar />
@@ -26,7 +22,6 @@ let App = () => {
 
         <ProjectFour />*/}
         <KeyMove />
-
       </main>
       <Footer />
     </div>

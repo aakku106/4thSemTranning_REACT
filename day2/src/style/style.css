@@ -4,6 +4,7 @@
 
 * {
   border-radius: 12px;
+  backdrop-filter: blur(6px);
 }
 
 .bg-wrapper {
@@ -87,9 +88,7 @@ footer {
   bottom: 0 !important;
 }
 
-
 .fixSpace {
   padding: 1rem;
   margin: 1rem;
-
 }
