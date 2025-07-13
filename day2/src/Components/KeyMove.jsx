@@ -9,7 +9,7 @@ export let KeyMove = () => {
     let up = () => {
       newPos.y -= 10;
       setPosition(newPos);
-      setDirecton(["ArrowUp", ...direction]);
+      setDirecton(["ArrowUp", ...direction.slice(0, 1)]);
       console.log(position);
       console.log(direction);
 
@@ -20,7 +20,7 @@ export let KeyMove = () => {
     let down = () => {
       newPos.y += 10
       setPosition(newPos);
-      setDirecton(["ArrowDown", ...direction]);
+      setDirecton(["ArrowDown", ...direction.slice(0, 1)]);
       console.log(position);
       console.log(direction);
 
@@ -32,7 +32,7 @@ export let KeyMove = () => {
       newPos.x += 10;
       setPosition(newPos)
       console.log(position);
-      setDirecton(["ArrowRight", ...direction]);
+      setDirecton(["ArrowRight", ...direction.slice(0, 1)]);
       console.log(position);
       console.log(direction);
 
@@ -44,7 +44,7 @@ export let KeyMove = () => {
       newPos.x -= 10
       setPosition(newPos)
       console.log(position);
-      setDirecton(["ArrowLeft", ...direction]);
+      setDirecton(["ArrowLeft", ...direction.slice(0, 1)]);
       console.log(position);
       console.log(direction);
 
