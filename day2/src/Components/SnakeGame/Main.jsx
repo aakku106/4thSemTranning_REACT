@@ -1,9 +1,7 @@
-/** @format */
-
 import { useEffect, useState } from "react";
-import "../style/Snake.css";
+import "../../style/Snake.css";
 
-export let KeyMove = () => {
+export let Snake = () => {
   let [position, setPosition] = useState({ x: 0, y: 0 });
   let [direction, setDirecton] = useState([]);
 
@@ -91,9 +89,6 @@ export let KeyMove = () => {
     <>
       <h1>Use buttons</h1>
       <div
-        style={{
-         
-        }}
         className="Board">
         <div
           className="snake"

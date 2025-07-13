@@ -10,7 +10,7 @@ import { Body3 } from "./Components/Body3.jsx";
 import { Body4 } from "./Components/ClaughterLessCall.jsx";
 import { ToDo } from "./Components/NewTodo.jsx";
 import { ProjectFour } from "./Components/Project4.jsx";
-import { KeyMove } from "./Components/KeyMove.jsx";
+import { Snake } from "./Components/SnakeGame/Main.jsx"
 let App = () => {
   return (
     <div className="min-h-screen flex flex-col">
@@ -20,8 +20,9 @@ let App = () => {
         {/* <Body />         <Body2 />
         <Body3 />        <Body4 />        <ToDo />
 
-        <ProjectFour />*/}
-        <KeyMove />
+        <ProjectFour />        <KeyMove />*/}
+        <Snake />
+
       </main>
       <Footer />
     </div>
