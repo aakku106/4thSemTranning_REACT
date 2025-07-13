@@ -2,15 +2,18 @@ import { useEffect, useState } from "react"
 
 export let KeyMove = () => {
   let [position, setPosition] = useState({ x: 0, y: 0 })
-  let [direction, setDirecton] = useState("")
+  let [direction, setDirecton] = useState([])
+  let prevDirection = "";
 
   useEffect(() => {
     let newPos = { ...position }
     let up = () => {
       newPos.y -= 10;
       setPosition(newPos);
+      setDirecton(["ArrowUp", ...direction]);
       console.log(position);
-      setDirecton("ArrowUp")
+      console.log(direction);
+
       if (position.y === -240) {
         newPos.y = 240
       }
@@ -18,7 +21,10 @@ export let KeyMove = () => {
     let down = () => {
       newPos.y += 10
       setPosition(newPos);
-      setDirecton("ArrowDown")
+      setDirecton(["ArrowDown", ...direction]);
+      console.log(position);
+      console.log(direction);
+
       if (position.y === 240) {
         newPos.y = -240
       }
@@ -27,7 +33,10 @@ export let KeyMove = () => {
       newPos.x += 10;
       setPosition(newPos)
       console.log(position);
-      setDirecton("ArrowRight")
+      setDirecton(["ArrowRight", ...direction]);
+      console.log(position);
+      console.log(direction);
+
       if (position.x === 240) {
         newPos.x = -240
       }
@@ -36,22 +45,25 @@ export let KeyMove = () => {
       newPos.x -= 10
       setPosition(newPos)
       console.log(position);
-      setDirecton("ArrowLeft")
+      setDirecton(["ArrowRight", ...direction]);
+      console.log(position);
+      console.log(direction);
+
       if (position.x === -240) {
         newPos.x = 240
       }
 
     }
     function handlePress(e) {
-      if (e.key === "ArrowUp") {
+      if (e.key === "ArrowUp" && direction[0] !== "ArrowDown") {
         up()
-      } else if (e.key === "ArrowDown") {
+      } else if (e.key === "ArrowDown" && direction[0] !== "ArrowUp") {
         down()
       }
-      else if (e.key === "ArrowRight") {
+      else if (e.key === "ArrowRight" && direction[0] !== "ArrowLeft") {
         right()
       }
-      else if (e.key === "ArrowLeft") {
+      else if (e.key === "ArrowLeft" && direction[0] !== "ArrowRight") {
         left()
       }
     }
