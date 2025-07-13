@@ -1,67 +1,20 @@
 import { useEffect, useState } from "react";
+import { Snake, up, down, left, right } from "./Movments"
 import "../../style/Snake.css";
-
-export let Snake = () => {
+export let SnakeGame = () => {
   let [position, setPosition] = useState({ x: 0, y: 0 });
   let [direction, setDirecton] = useState([]);
-
+  let newPos = { ...position };
   useEffect(() => {
-    let newPos = { ...position };
-    let up = () => {
-      newPos.y -= 10;
-      setPosition(newPos);
-      setDirecton(["ArrowUp", ...direction.slice(0, 1)]);
-      console.log(position);
-      console.log(direction);
-
-      if (position.y === -240) {
-        newPos.y = 240;
-      }
-    };
-    let down = () => {
-      newPos.y += 10;
-      setPosition(newPos);
-      setDirecton(["ArrowDown", ...direction.slice(0, 1)]);
-      console.log(position);
-      console.log(direction);
-
-      if (position.y === 240) {
-        newPos.y = -240;
-      }
-    };
-    let right = () => {
-      newPos.x += 10;
-      setPosition(newPos);
-      console.log(position);
-      setDirecton(["ArrowRight", ...direction.slice(0, 1)]);
-      console.log(position);
-      console.log(direction);
-
-      if (position.x === 240) {
-        newPos.x = -240;
-      }
-    };
-    let left = () => {
-      newPos.x -= 10;
-      setPosition(newPos);
-      console.log(position);
-      setDirecton(["ArrowLeft", ...direction.slice(0, 1)]);
-      console.log(position);
-      console.log(direction);
-
-      if (position.x === -240) {
-        newPos.x = 240;
-      }
-    };
     function handlePress(e) {
       if (e.key === "ArrowUp" && direction[0] !== "ArrowDown") {
-        up();
+        up(position, setPosition, direction, setDirecton);
       } else if (e.key === "ArrowDown" && direction[0] !== "ArrowUp") {
-        down();
+        down(position, setPosition, direction, setDirecton);
       } else if (e.key === "ArrowRight" && direction[0] !== "ArrowLeft") {
-        right();
+        right(position, setPosition, direction, setDirecton);
       } else if (e.key === "ArrowLeft" && direction[0] !== "ArrowRight") {
-        left();
+        left(position, setPosition, direction, setDirecton);
       }
     }
     window.addEventListener("keydown", handlePress);
@@ -87,14 +40,9 @@ export let Snake = () => {
 
   return (
     <>
-      <h1>Use buttons</h1>
       <div
         className="Board">
-        <div
-          className="snake"
-          style={{
-            transform: `translate(${position.x}px, ${position.y}px)`,
-          }}></div>
+        <Snake Position={position} SetPosition={setPosition} />
       </div>
     </>
   );
