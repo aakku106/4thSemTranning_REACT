@@ -7,7 +7,6 @@ export let KeyMove = () => {
       let newPos = { ...position }
       if (106) {
         if (e.key === "ArrowUp") {
-          console.log(e.key);
           newPos.y -= 30;
           setPosition(newPos);
         }
