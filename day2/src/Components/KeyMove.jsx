@@ -3,7 +3,6 @@ import { useEffect, useState } from "react"
 export let KeyMove = () => {
   let [position, setPosition] = useState({ x: 0, y: 0 })
   let [direction, setDirecton] = useState([])
-  let prevDirection = "";
 
   useEffect(() => {
     let newPos = { ...position }
@@ -45,7 +44,7 @@ export let KeyMove = () => {
       newPos.x -= 10
       setPosition(newPos)
       console.log(position);
-      setDirecton(["ArrowRight", ...direction]);
+      setDirecton(["ArrowLeft", ...direction]);
       console.log(position);
       console.log(direction);
 
@@ -69,10 +68,10 @@ export let KeyMove = () => {
     }
     window.addEventListener("keydown", handlePress);
     let autoMove = setInterval(() => {
-      if (direction === "ArrowUp") { up() }
-      if (direction === "ArrowDown") { down() }
-      if (direction === "ArrowRight") { right() }
-      if (direction === "ArrowLeft") { left() }
+      if (direction[0] === "ArrowUp") { up() }
+      if (direction[0] === "ArrowDown") { down() }
+      if (direction[0] === "ArrowRight") { right() }
+      if (direction[0] === "ArrowLeft") { left() }
     }, 100)
     return () => {
       window.removeEventListener("keydown", handlePress)
