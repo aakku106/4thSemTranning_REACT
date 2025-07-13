@@ -1,34 +1,57 @@
 import { useEffect, useState } from "react"
 
 export let KeyMove = () => {
-  let [position, setPosition] = useState({ x: 50, y: 50 })
+  let [position, setPosition] = useState({ x: 0, y: 0 })
   useEffect(() => {
     function handlePress(e) {
       let newPos = { ...position }
       if (e.key === "ArrowUp") {
-        //        newPos.y -= 30;
-        newPos.y -= Math.max(-450, newPos.y - 30)
+        newPos.y -= 10;
         setPosition(newPos);
-      }
-      else if (e.key === "ArrowDown") {
-        console.log(e.key)
-        newPos.y += 30
-        setPosition(newPos)
+        console.log(position);
+        if (position.y === -240) {
+          newPos.y = 240
+        }
+      } else if (e.key === "ArrowDown") {
+        newPos.y += 10
+        setPosition(newPos);
+        if (position.y === 240) {
+          newPos.y = -240
+        }
       }
       else if (e.key === "ArrowRight") {
-        newPos.x += 30;
+        newPos.x += 10;
         setPosition(newPos)
+        console.log(position);
+        if (position.x === 240) {
+          newPos.x = -240
+        }
       }
       else if (e.key === "ArrowLeft") {
-        newPos.x -= 30
+        newPos.x -= 10
         setPosition(newPos)
+        console.log(position);
+        if (position.x === -240) {
+          newPos.x = 240
+        }
       }
     }
+
+    let autoMove = setInterval(() => {
+
+      handlePress
+
+    }, 600)
+
+
     window.addEventListener("keydown", handlePress);
     return () => {
       window.removeEventListener("keydown", handlePress)
+      clearInterval(autoMove);
     }
   })
+
+
 
   return (<>
     <h1>Use buttons</h1>
@@ -42,8 +65,8 @@ export let KeyMove = () => {
       <div
         className="snake"
         style={{
-          height: "1rem",
-          width: "1rem",
+          height: "10px",
+          width: "10px",
           backgroundColor: "blue",
           position: "absolute",
           top: `50%`,
