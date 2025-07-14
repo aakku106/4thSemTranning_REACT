@@ -1,5 +1,3 @@
-/** @format */
-
 export let Food = ({ position }) => {
   return (
     <>

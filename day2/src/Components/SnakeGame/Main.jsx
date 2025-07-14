@@ -1,5 +1,3 @@
-/** @format */
-
 import { useEffect, useState } from "react";
 import { Snake } from "./Snake";
 import { Food } from "./Food";
@@ -48,28 +46,18 @@ export let SnakeGame = () => {
       });
       setDirecton((prev) => ["ArrowRight", ...prev.slice(0, 1)]);
     };
-    function handlePress(e) {
-      if (e.key === "ArrowUp" && direction[0] !== "ArrowDown") {
-        up();
-      } else if (e.key === "ArrowDown" && direction[0] !== "ArrowUp") {
-        down();
-      } else if (e.key === "ArrowRight" && direction[0] !== "ArrowLeft") {
-        right();
-      } else if (e.key === "ArrowLeft" && direction[0] !== "ArrowRight") {
-        left();
-      }
+    let handlePress = (e) => {
+      if (e.key === "ArrowUp" && direction[0] !== "ArrowDown") up();
+      else if (e.key === "ArrowDown" && direction[0] !== "ArrowUp") down();
+      else if (e.key === "ArrowRight" && direction[0] !== "ArrowLeft") right();
+      else if (e.key === "ArrowLeft" && direction[0] !== "ArrowRight") left();
     }
     window.addEventListener("keydown", handlePress);
     let autoMove = setInterval(() => {
-      if (direction[0] === "ArrowUp") {
-        up();
-      } else if (direction[0] === "ArrowDown") {
-        down();
-      } else if (direction[0] === "ArrowRight") {
-        right();
-      } else if (direction[0] === "ArrowLeft") {
-        left();
-      }
+      if (direction[0] === "ArrowUp") up();
+      else if (direction[0] === "ArrowDown") down();
+      else if (direction[0] === "ArrowRight") right();
+      else if (direction[0] === "ArrowLeft") left();
     }, 100);
     return () => {
       window.removeEventListener("keydown", handlePress);
@@ -89,7 +77,7 @@ export let SnakeGame = () => {
     <>
       <h1>Use buttons</h1>
       <div className="Board">
-        <Snake position={position} count={count} />
+        <Snake position={position} count={count} direction={direction} />
         <Food position={Fposition} />
       </div>
     </>

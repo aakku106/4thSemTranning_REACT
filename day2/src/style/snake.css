@@ -15,7 +15,6 @@
 .snake {
   box-shadow: 0px 0px 20px 4px rgb(253, 253, 253);
   height: 15px;
-  width: 15px;
   background-color: transparent;
   position: absolute;
   top: 50%;
