@@ -1,12 +1,14 @@
+/** @format */
+
 export let Food = ({ position }) => {
   return (
     <>
-      <div className="Food"
+      <div
+        className="Food"
         style={{
-          top: `${position.x}px`,
-          left: `${position.y}px`
-        }}
-      ></div>
+          top: `${position.y}px`,
+          left: `${position.x}px`,
+        }}></div>
     </>
-  )
-}
+  );
+};

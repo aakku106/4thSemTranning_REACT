@@ -5,6 +5,7 @@
 * {
   border-radius: 12px;
   backdrop-filter: blur(6px);
+  overflow: hidden;
 }
 
 .bg-wrapper {
