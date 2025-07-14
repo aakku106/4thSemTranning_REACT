@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "../../style/Snake.css";
 
 export let SnakeGame = () => {
+
   let [position, setPosition] = useState({ x: 0, y: 0 });
   let [direction, setDirecton] = useState([]);
 
