@@ -14,7 +14,7 @@ export let SnakeGame = () => {
       console.log(position);
       console.log(direction);
 
-      if (position.y === -240) {
+      if (position.y === -239) {
         newPos.y = 240;
       }
     };
