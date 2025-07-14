@@ -6,66 +6,48 @@ import "../../style/Snake.css";
 export let SnakeGame = () => {
 
   let [position, setPosition] = useState({ x: 0, y: 0 });
-  let [Fposition, setFPosition] = useState({ x: 30, y: 60 });
+  let [Fposition, setFPosition] = useState({ x: 50, y: 50 });
   let [direction, setDirecton] = useState([]);
-  let count = 0
+  let [count, setCount] = useState(15);
 
   useEffect(() => {
     let newPos = { ...position };
-    let RamdomFoodPosition = () => {
-      let X = Math.floor(Math.abs(Math.random() * 100))
-      let Y = Math.floor(Math.abs(Math.random() * 100))
-      console.log("X: ", X, "Y: ", Y, "Count: ", count)
-      setFPosition({ x: X, y: Y })
-    }
-    let checkPosition = () => {
-      if (position.x === Fposition.x && position.y === Fposition.y) {
-        RamdomFoodPosition();
-        count++;
-        return
-      }
-      return
-    }
     let up = () => {
-      checkPosition()
       newPos.y -= 10;
       setPosition(newPos);
       setDirecton(["ArrowUp", ...direction.slice(0, 1)]);
-      //console.log(position);
-      //console.log(direction);
+      // console.log(position);
+      // console.log(direction);
 
-      if (position.y === -240) {
-        newPos.y = 240;
+      if (position.y === 0) {
+        newPos.y = 500;
       }
     };
     let down = () => {
-      checkPosition()
       newPos.y += 10;
       setPosition(newPos);
       setDirecton(["ArrowDown", ...direction.slice(0, 1)]);
 
-      if (position.y === 240) {
-        newPos.y = -240;
+      if (position.y === 500) {
+        newPos.y = 0;
       }
     };
     let right = () => {
-      checkPosition()
       newPos.x += 10;
       setPosition(newPos);
       setDirecton(["ArrowRight", ...direction.slice(0, 1)]);
 
-      if (position.x === 240) {
-        newPos.x = -240;
+      if (position.x === 500) {
+        newPos.x = 0;
       }
     };
     let left = () => {
-      checkPosition()
       newPos.x -= 10;
       setPosition(newPos);
       setDirecton(["ArrowLeft", ...direction.slice(0, 1)]);
 
-      if (position.x === -240) {
-        newPos.x = 240;
+      if (position.x === 0) {
+        newPos.x = 500;
       }
     };
     function handlePress(e) {
@@ -99,13 +81,21 @@ export let SnakeGame = () => {
       clearInterval(autoMove);
     };
   });
-
+  useEffect(() => {
+    if (position.x === Fposition.x && position.y === Fposition.y) {
+      count += 10
+      setFPosition({
+        x: (Math.floor(Math.random() * 49) + 1) * 10,
+        y: (Math.floor(Math.random() * 49) + 1) * 10
+      });
+    }
+  }, [direction]);
   return (
     <>
       <h1>Use buttons</h1>
       <div
         className="Board">
-        <Snake position={position} />
+        <Snake position={position} count={count} />
         <Food position={Fposition} />
       </div>
     </>
