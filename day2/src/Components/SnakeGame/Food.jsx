@@ -5,8 +5,8 @@ export let Food = ({ position }) => {
 
 
         style={{
-
-          transform: `translate(${position.x}px,${position.y})`
+          top: `${position.x}%`,
+          left: `${position.y}%`
         }}
 
       ></div>

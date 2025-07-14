@@ -6,70 +6,77 @@ import "../../style/Snake.css";
 export let SnakeGame = () => {
 
   let [position, setPosition] = useState({ x: 0, y: 0 });
-  let [Fposition, setFPosition] = useState({ x: 0, y: 0 });
+  let [Fposition, setFPosition] = useState({ x: 30, y: 60 });
   let [direction, setDirecton] = useState([]);
+  let count = 0
 
   useEffect(() => {
     let newPos = { ...position };
+    let RamdomFoodPosition = () => {
+      let X = Math.floor(Math.abs(Math.random() * 100))
+      let Y = Math.floor(Math.abs(Math.random() * 100))
+      console.log("X: ", X, "Y: ", Y, "Count: ", count)
+      setFPosition({ x: X, y: Y })
+    }
+    let checkPosition = () => {
+      if (position.x === Fposition.x && position.y === Fposition.y) {
+        RamdomFoodPosition();
+        count++;
+        return
+      }
+      return
+    }
     let up = () => {
+      checkPosition()
       newPos.y -= 10;
       setPosition(newPos);
       setDirecton(["ArrowUp", ...direction.slice(0, 1)]);
-      console.log(position);
-      console.log(direction);
+      //console.log(position);
+      //console.log(direction);
 
       if (position.y === -240) {
         newPos.y = 240;
       }
     };
     let down = () => {
+      checkPosition()
       newPos.y += 10;
       setPosition(newPos);
       setDirecton(["ArrowDown", ...direction.slice(0, 1)]);
-      console.log(position);
-      console.log(direction);
 
       if (position.y === 240) {
         newPos.y = -240;
       }
     };
     let right = () => {
+      checkPosition()
       newPos.x += 10;
       setPosition(newPos);
-      console.log(position);
       setDirecton(["ArrowRight", ...direction.slice(0, 1)]);
-      console.log(position);
-      console.log(direction);
 
       if (position.x === 240) {
         newPos.x = -240;
       }
     };
     let left = () => {
+      checkPosition()
       newPos.x -= 10;
       setPosition(newPos);
-      console.log(position);
       setDirecton(["ArrowLeft", ...direction.slice(0, 1)]);
-      console.log(position);
-      console.log(direction);
 
       if (position.x === -240) {
         newPos.x = 240;
       }
     };
     function handlePress(e) {
-      if (position.x !== Fposition.x && position.y !== Fposition.y) {
-        if (e.key === "ArrowUp" && direction[0] !== "ArrowDown") {
-          up();
-        } else if (e.key === "ArrowDown" && direction[0] !== "ArrowUp") {
-          down();
-        } else if (e.key === "ArrowRight" && direction[0] !== "ArrowLeft") {
-          right();
-        } else if (e.key === "ArrowLeft" && direction[0] !== "ArrowRight") {
-          left();
-        }
-      } else {
-        setFPosition({ x: Math.random() * 10, y: Math.random() * 10 })
+      if (e.key === "ArrowUp" && direction[0] !== "ArrowDown") {
+        up();
+      } else if (e.key === "ArrowDown" && direction[0] !== "ArrowUp") {
+        down();
+      } else if (e.key === "ArrowRight" && direction[0] !== "ArrowLeft") {
+        right();
+      } else if (e.key === "ArrowLeft" && direction[0] !== "ArrowRight") {
+        left();
       }
     }
     window.addEventListener("keydown", handlePress);
@@ -77,13 +84,13 @@ export let SnakeGame = () => {
       if (direction[0] === "ArrowUp") {
         up();
       }
-      if (direction[0] === "ArrowDown") {
+      else if (direction[0] === "ArrowDown") {
         down();
       }
-      if (direction[0] === "ArrowRight") {
+      else if (direction[0] === "ArrowRight") {
         right();
       }
-      if (direction[0] === "ArrowLeft") {
+      else if (direction[0] === "ArrowLeft") {
         left();
       }
     }, 100);
