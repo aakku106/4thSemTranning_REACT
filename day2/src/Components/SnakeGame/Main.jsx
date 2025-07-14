@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
+import { Snake } from "./Snake"
+import { Food } from "./Food"
 import "../../style/Snake.css";
 
 export let SnakeGame = () => {
 
   let [position, setPosition] = useState({ x: 0, y: 0 });
+  let [Fposition, setFPosition] = useState({ x: 0, y: 0 });
   let [direction, setDirecton] = useState([]);
 
   useEffect(() => {
@@ -15,7 +18,7 @@ export let SnakeGame = () => {
       console.log(position);
       console.log(direction);
 
-      if (position.y === -239) {
+      if (position.y === -240) {
         newPos.y = 240;
       }
     };
@@ -55,14 +58,18 @@ export let SnakeGame = () => {
       }
     };
     function handlePress(e) {
-      if (e.key === "ArrowUp" && direction[0] !== "ArrowDown") {
-        up();
-      } else if (e.key === "ArrowDown" && direction[0] !== "ArrowUp") {
-        down();
-      } else if (e.key === "ArrowRight" && direction[0] !== "ArrowLeft") {
-        right();
-      } else if (e.key === "ArrowLeft" && direction[0] !== "ArrowRight") {
-        left();
+      if (position.x !== Fposition.x && position.y !== Fposition.y) {
+        if (e.key === "ArrowUp" && direction[0] !== "ArrowDown") {
+          up();
+        } else if (e.key === "ArrowDown" && direction[0] !== "ArrowUp") {
+          down();
+        } else if (e.key === "ArrowRight" && direction[0] !== "ArrowLeft") {
+          right();
+        } else if (e.key === "ArrowLeft" && direction[0] !== "ArrowRight") {
+          left();
+        }
+      } else {
+        setFPosition({ x: Math.random() * 10, y: Math.random() * 10 })
       }
     }
     window.addEventListener("keydown", handlePress);
@@ -91,11 +98,8 @@ export let SnakeGame = () => {
       <h1>Use buttons</h1>
       <div
         className="Board">
-        <div
-          className="snake"
-          style={{
-            transform: `translate(${position.x}px, ${position.y}px)`,
-          }}></div>
+        <Snake position={position} />
+        <Food position={Fposition} />
       </div>
     </>
   );
