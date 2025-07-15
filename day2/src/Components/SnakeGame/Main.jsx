@@ -1,5 +1,3 @@
-/** @format */
-
 import { useEffect, useState } from "react";
 import { Snake } from "./Snake";
 import { Food } from "./Food";
@@ -9,7 +7,6 @@ export let SnakeGame = () => {
   let [position, setPosition] = useState({ x: 200, y: 200 });
   let [Fposition, setFPosition] = useState({ x: 50, y: 50 });
   let [direction, setDirecton] = useState([]);
-  let [count, setCount] = useState(15);
   let [snake, setSnake] = useState([{ x: 200, y: 200 }]);
 
   useEffect(() => {
@@ -83,7 +80,6 @@ export let SnakeGame = () => {
   }, [direction]);
   useEffect(() => {
     if (position.x === Fposition.x && position.y === Fposition.y) {
-      setCount((prev) => prev + 10);
       setFPosition({
         x: (Math.floor(Math.random() * 49) + 1) * 10,
         y: (Math.floor(Math.random() * 49) + 1) * 10,

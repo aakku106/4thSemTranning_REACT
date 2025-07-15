@@ -83,8 +83,8 @@
   position: absolute;
   border-radius: 50% !important;
   z-index: 2;
-  animation: snakeGlow 2s ease-in-out infinite,
-    snakeMove 0.5s ease-in-out infinite;
+  /*animation: snakeGlow 2s ease-in-out infinite,
+    snakeMove 0.5s ease-in-out infinite;*/
   border: 1px solid rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(2px);
   overflow: visible !important;
@@ -99,7 +99,7 @@
       rgba(255, 165, 0, 0.8) 50%,
       rgba(255, 69, 0, 0.6) 100%);
   border-radius: 50% !important;
-  animation: foodPulse 1.5s ease-in-out infinite;
+  /*animation: foodPulse 1.5s ease-in-out infinite;*/
   z-index: 3;
   border: 2px solid rgba(255, 255, 255, 0.6);
   box-shadow: 0 0 15px rgba(255, 215, 0, 0.8),
