@@ -5,11 +5,10 @@ import "../../style/Snake.css";
 
 export let SnakeGame = () => {
   let [position, setPosition] = useState({ x: 200, y: 200 });
-  let [Fposition, setFPosition] = useState({ x: 50, y: 50 });
+  let [Fposition, setFPosition] = useState({ x: 200, y: 200 });
   let [direction, setDirecton] = useState([]);
   let [count, setCount] = useState(15);
-  let [head, setHead] = useState(position)
-  let [snake, setSnake] = useState([head])
+  let [snake, setSnake] = useState([{ x: 200, y: 200 }])
 
   useEffect(() => {
     let up = () => {
@@ -20,7 +19,7 @@ export let SnakeGame = () => {
         return newPos;
       });
       setDirecton((prev) => ["ArrowUp", ...prev.slice(0, 1)]);
-      console.log(' position ', position, ' head ', head, ' snake ', snake)
+      console.log(' position ', position, ' snake ', snake)
     };
     let down = () => {
       setPosition((prev) => {
@@ -62,8 +61,9 @@ export let SnakeGame = () => {
       else if (e.key === "ArrowLeft" && direction[0] !== "ArrowRight") left();
       else if (e.key === "Escape") stop();
     }
-    setHead(position)
-    setSnake([head])
+
+    setSnake([...snake])
+
     window.addEventListener("keydown", handlePress);
     let autoMove = setInterval(() => {
       if (direction[0] === "ArrowUp") up();
@@ -87,15 +87,13 @@ export let SnakeGame = () => {
     }
   }, [position]);
   let addBody = () => {
-    snake
-
-
-  }
+    setSnake(prev => [position, ...prev]);
+  };
   return (
     <>
       <h1>Use buttons</h1>
       <div className="Board">
-        <Snake position={head} count={count} direction={direction} snake={snake} />
+        <Snake snake={snake} />
         <Food position={Fposition} />
       </div>
     </>
