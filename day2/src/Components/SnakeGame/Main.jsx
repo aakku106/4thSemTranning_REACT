@@ -8,6 +8,8 @@ export let SnakeGame = () => {
   let [Fposition, setFPosition] = useState({ x: 50, y: 50 });
   let [direction, setDirecton] = useState([]);
   let [count, setCount] = useState(15);
+  let [head, setHead] = useState(position)
+  let [snake, setSnake] = useState([head])
 
   useEffect(() => {
     let up = () => {
@@ -18,6 +20,7 @@ export let SnakeGame = () => {
         return newPos;
       });
       setDirecton((prev) => ["ArrowUp", ...prev.slice(0, 1)]);
+      console.log(' position ', position, ' head ', head, ' snake ', snake)
     };
     let down = () => {
       setPosition((prev) => {
@@ -46,19 +49,28 @@ export let SnakeGame = () => {
       });
       setDirecton((prev) => ["ArrowRight", ...prev.slice(0, 1)]);
     };
+
+    let stop = () => {
+      clearInterval(autoMove);
+      setDirecton(['stop', 'Snakkiii'])
+    }
+
     let handlePress = (e) => {
       if (e.key === "ArrowUp" && direction[0] !== "ArrowDown") up();
       else if (e.key === "ArrowDown" && direction[0] !== "ArrowUp") down();
       else if (e.key === "ArrowRight" && direction[0] !== "ArrowLeft") right();
       else if (e.key === "ArrowLeft" && direction[0] !== "ArrowRight") left();
+      else if (e.key === "Escape") stop();
     }
+    setHead(position)
+    setSnake(head)
     window.addEventListener("keydown", handlePress);
     let autoMove = setInterval(() => {
       if (direction[0] === "ArrowUp") up();
       else if (direction[0] === "ArrowDown") down();
       else if (direction[0] === "ArrowRight") right();
       else if (direction[0] === "ArrowLeft") left();
-    }, 100);
+    }, 1000);
     return () => {
       window.removeEventListener("keydown", handlePress);
       clearInterval(autoMove);
@@ -71,8 +83,14 @@ export let SnakeGame = () => {
         x: (Math.floor(Math.random() * 49) + 1) * 10,
         y: (Math.floor(Math.random() * 49) + 1) * 10,
       });
+      addBody()
     }
   }, [position]);
+  let addBody = () => {
+    snake
+
+
+  }
   return (
     <>
       <h1>Use buttons</h1>
