@@ -63,7 +63,7 @@ export let SnakeGame = () => {
       else if (e.key === "Escape") stop();
     }
     setHead(position)
-    setSnake(head)
+    setSnake([head])
     window.addEventListener("keydown", handlePress);
     let autoMove = setInterval(() => {
       if (direction[0] === "ArrowUp") up();
@@ -95,7 +95,7 @@ export let SnakeGame = () => {
     <>
       <h1>Use buttons</h1>
       <div className="Board">
-        <Snake position={position} count={count} direction={direction} />
+        <Snake position={head} count={count} direction={direction} snake={snake} />
         <Food position={Fposition} />
       </div>
     </>
