@@ -1,14 +1,16 @@
+/** @format */
+
 import { useEffect, useState } from "react";
 import { Snake } from "./Snake";
 import { Food } from "./Food";
-import "../../style/Snake.css";
+import "../../style/snake.css";
 
 export let SnakeGame = () => {
   let [position, setPosition] = useState({ x: 200, y: 200 });
-  let [Fposition, setFPosition] = useState({ x: 200, y: 200 });
+  let [Fposition, setFPosition] = useState({ x: 50, y: 50 });
   let [direction, setDirecton] = useState([]);
   let [count, setCount] = useState(15);
-  let [snake, setSnake] = useState([{ x: 200, y: 200 }])
+  let [snake, setSnake] = useState([{ x: 200, y: 200 }]);
 
   useEffect(() => {
     let up = () => {
@@ -19,7 +21,7 @@ export let SnakeGame = () => {
         return newPos;
       });
       setDirecton((prev) => ["ArrowUp", ...prev.slice(0, 1)]);
-      console.log(' position ', position, ' snake ', snake)
+      setSnake((prev) => [position, ...prev.slice(0, -1)]);
     };
     let down = () => {
       setPosition((prev) => {
@@ -29,6 +31,7 @@ export let SnakeGame = () => {
         return newPos;
       });
       setDirecton((prev) => ["ArrowDown", ...prev.slice(0, 1)]);
+      setSnake((prev) => [position, ...prev.slice(0, -1)]);
     };
     let left = () => {
       setPosition((prev) => {
@@ -38,6 +41,7 @@ export let SnakeGame = () => {
         return newPos;
       });
       setDirecton((prev) => ["ArrowLeft", ...prev.slice(0, 1)]);
+      setSnake((prev) => [position, ...prev.slice(0, -1)]);
     };
     let right = () => {
       setPosition((prev) => {
@@ -47,30 +51,31 @@ export let SnakeGame = () => {
         return newPos;
       });
       setDirecton((prev) => ["ArrowRight", ...prev.slice(0, 1)]);
+      setSnake((prev) => [position, ...prev.slice(0, -1)]);
     };
-
-    let stop = () => {
-      clearInterval(autoMove);
-      setDirecton(['stop', 'Snakkiii'])
+    function handlePress(e) {
+      if (e.key === "ArrowUp" && direction[0] !== "ArrowDown") {
+        up();
+      } else if (e.key === "ArrowDown" && direction[0] !== "ArrowUp") {
+        down();
+      } else if (e.key === "ArrowRight" && direction[0] !== "ArrowLeft") {
+        right();
+      } else if (e.key === "ArrowLeft" && direction[0] !== "ArrowRight") {
+        left();
+      }
     }
-
-    let handlePress = (e) => {
-      if (e.key === "ArrowUp" && direction[0] !== "ArrowDown") up();
-      else if (e.key === "ArrowDown" && direction[0] !== "ArrowUp") down();
-      else if (e.key === "ArrowRight" && direction[0] !== "ArrowLeft") right();
-      else if (e.key === "ArrowLeft" && direction[0] !== "ArrowRight") left();
-      else if (e.key === "Escape") stop();
-    }
-
-    setSnake([...snake])
-
     window.addEventListener("keydown", handlePress);
     let autoMove = setInterval(() => {
-      if (direction[0] === "ArrowUp") up();
-      else if (direction[0] === "ArrowDown") down();
-      else if (direction[0] === "ArrowRight") right();
-      else if (direction[0] === "ArrowLeft") left();
-    }, 1000);
+      if (direction[0] === "ArrowUp") {
+        up();
+      } else if (direction[0] === "ArrowDown") {
+        down();
+      } else if (direction[0] === "ArrowRight") {
+        right();
+      } else if (direction[0] === "ArrowLeft") {
+        left();
+      }
+    }, 100);
     return () => {
       window.removeEventListener("keydown", handlePress);
       clearInterval(autoMove);
@@ -83,12 +88,9 @@ export let SnakeGame = () => {
         x: (Math.floor(Math.random() * 49) + 1) * 10,
         y: (Math.floor(Math.random() * 49) + 1) * 10,
       });
-      addBody()
+      setSnake((prev) => [...prev, { ...prev[prev.length - 1] }]);
     }
   }, [position]);
-  let addBody = () => {
-    setSnake(prev => [position, ...prev]);
-  };
   return (
     <>
       <h1>Use buttons</h1>

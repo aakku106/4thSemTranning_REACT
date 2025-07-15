@@ -1,4 +1,62 @@
-/** @format */
+@keyframes snakeGlow {
+  0% {
+    box-shadow: 0px 0px 15px 3px rgba(0, 255, 255, 0.8),
+      0px 0px 30px 6px rgba(0, 255, 255, 0.4);
+    transform: scale(1);
+  }
+
+  50% {
+    box-shadow: 0px 0px 25px 5px rgba(255, 0, 255, 0.9),
+      0px 0px 40px 8px rgba(255, 0, 255, 0.5);
+    transform: scale(1.1);
+  }
+
+  100% {
+    box-shadow: 0px 0px 15px 3px rgba(0, 255, 255, 0.8),
+      0px 0px 30px 6px rgba(0, 255, 255, 0.4);
+    transform: scale(1);
+  }
+}
+
+@keyframes snakeMove {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+
+  25% {
+    transform: translateX(1px) translateY(-1px) rotate(90deg);
+  }
+
+  50% {
+    transform: translateX(0) translateY(0) rotate(180deg);
+  }
+
+  75% {
+    transform: translateX(-1px) translateY(1px) rotate(270deg);
+  }
+
+  100% {
+    transform: translateX(0) translateY(0) rotate(360deg);
+  }
+}
+
+@keyframes foodPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+  }
+
+  50% {
+    transform: scale(1.2);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 1), 0 0 30px rgba(255, 165, 0, 0.7);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+  }
+}
+
 .control {
   position: absolute;
   background-color: rgba(147, 226, 180, 0.098);
@@ -13,35 +71,42 @@
 }
 
 .snake {
-  box-shadow: 0px 0px 20px 4px rgb(253, 253, 253);
-  width: 15px;
-  height: 15px;
-  background-color: transparent;
+  background: linear-gradient(45deg,
+      rgba(0, 255, 255, 0.468),
+      rgba(255, 0, 255, 0.472),
+      rgba(0, 255, 255, 0.486));
+  box-shadow: 0px 0px 20px 4px rgba(0, 255, 255, 0.8),
+    inset 0 2px 4px rgba(255, 255, 255, 0.3),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+  width: 10px;
+  height: 10px;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  border-radius: 50%;
-  z-index: 0;
-  transition: all 10ms ease-in-out;
+  border-radius: 50% !important;
+  z-index: 2;
+  animation: snakeGlow 2s ease-in-out infinite,
+    snakeMove 0.5s ease-in-out infinite;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(2px);
+  overflow: visible !important;
 }
-
 
 .Food {
   position: absolute;
-  width: 15px;
-  background-color: transparent;
-  height: 15px;
-  transition: all .3s ease-in-out;
-  z-index: 1;
-
-  &::before {
-    content: "    ";
-    font-size: 1.2em;
-    color: black;
-    position: absolute;
-    left: 0%;
-    top: 0% !important;
-  }
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle,
+      rgba(255, 215, 0, 1) 0%,
+      rgba(255, 165, 0, 0.8) 50%,
+      rgba(255, 69, 0, 0.6) 100%);
+  border-radius: 50% !important;
+  animation: foodPulse 1.5s ease-in-out infinite;
+  z-index: 3;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.8),
+    inset 0 2px 4px rgba(255, 255, 255, 0.5),
+    inset 0 -2px 4px rgba(255, 140, 0, 0.7);
+  backdrop-filter: blur(1px);
+  overflow: visible !important;
 }
 
 .Board {
@@ -51,9 +116,10 @@
       rgba(255, 255, 0, 0.467),
       rgba(0, 128, 0, 0.477));
   margin: 20px auto;
-  overflow: hidden;
+  overflow: visible !important;
   z-index: 1;
-  height: 500px;
-  width: 500px;
+  height: 500px !important;
+  width: 500px !important;
   position: relative;
+  border-radius: 0 !important;
 }

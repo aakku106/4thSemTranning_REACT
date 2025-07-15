@@ -10,7 +10,6 @@ export let Snake = ({ snake }) => {
             left: `${val.x}px`,
           }}
         >
-          orewSnake
         </div>
       ))}
     </>
