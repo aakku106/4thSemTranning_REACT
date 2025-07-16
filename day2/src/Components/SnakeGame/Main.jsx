@@ -1,3 +1,5 @@
+/** @format */
+
 import { useEffect, useState } from "react";
 import { Snake } from "./Snake";
 import { Food } from "./Food";
@@ -87,9 +89,18 @@ export let SnakeGame = () => {
       setSnake((prev) => [...prev, { ...prev[prev.length - 1] }]);
     }
   }, [position]);
-  return (
+  useEffect(() => {
+    const head = snake[0];
+    const body = snake.slice(1);
+    for (let segment of body) {
+      if (segment.x === head.x && segment.y === head.y) {
+        console.log("Game Over! Snake ate itself 🐍💀");
+        window.location.reload(true);
+        break;
+      }
+    }
+  }, [position]); return (
     <>
-      <h1>Use buttons</h1>
       <div className="Board">
         <Snake snake={snake} />
         <Food position={Fposition} />
