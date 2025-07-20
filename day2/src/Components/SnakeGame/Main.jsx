@@ -99,7 +99,8 @@ export let SnakeGame = () => {
         break;
       }
     }
-  }, [position]); return (
+  }, [position]);
+  return (
     <>
       <div className="Board">
         <Snake snake={snake} />

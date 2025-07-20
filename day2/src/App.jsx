@@ -11,20 +11,22 @@ import { Body4 } from "./Components/ClaughterLessCall.jsx";
 import { ToDo } from "./Components/NewTodo.jsx";
 import { ProjectFour } from "./Components/Project4.jsx";
 import { SnakeGame } from "./Components/SnakeGame/Main.jsx"
+import Tik from "./Components/TickTackTho/Main.jsx"
 let App = () => {
   return (
     <div className="min-h-screen flex flex-col">
-      <NavBar />
+      {/*<NavBar />*/}
 
       <main className="flex-grow">
         {/* <Body />         <Body2 />
         <Body3 />        <Body4 />        <ToDo />
 
-        <ProjectFour />        <KeyMove />*/}
-        <SnakeGame />
+        <ProjectFour />        <KeyMove />
+        <SnakeGame />*/}
 
+        <Tik />
       </main>
-      <Footer />
+      {/*<Footer />*/}
     </div>
   );
 };

@@ -73,12 +73,10 @@
 }
 
 .snake {
-  background: linear-gradient(
-    45deg,
-    rgba(0, 255, 255, 0.468),
-    rgba(255, 0, 255, 0.472),
-    rgba(0, 255, 255, 0.486)
-  );
+  background: linear-gradient(45deg,
+      rgba(0, 255, 255, 0.468),
+      rgba(255, 0, 255, 0.472),
+      rgba(0, 255, 255, 0.486));
   box-shadow: 0px 0px 20px 4px rgba(0, 255, 255, 0.8),
     inset 0 2px 4px rgba(255, 255, 255, 0.3),
     inset 0 -2px 4px rgba(0, 0, 0, 0.3);
@@ -99,12 +97,10 @@
   position: absolute;
   width: 10px;
   height: 10px;
-  background: radial-gradient(
-    circle,
-    rgba(255, 215, 0, 1) 0%,
-    rgba(255, 165, 0, 0.8) 50%,
-    rgba(255, 69, 0, 0.6) 100%
-  );
+  background: radial-gradient(circle,
+      rgba(255, 215, 0, 1) 0%,
+      rgba(255, 165, 0, 0.8) 50%,
+      rgba(255, 69, 0, 0.6) 100%);
   border-radius: 50% !important;
   /*animation: foodPulse 1.5s ease-in-out infinite;*/
   z-index: 3;
@@ -119,12 +115,10 @@
 
 .Board {
   border: 2px solid #000000;
-  background: radial-gradient(
-    rgba(255, 255, 255, 0.48),
-    rgba(255, 0, 0, 0.441),
-    rgba(255, 255, 0, 0.467),
-    rgba(0, 128, 0, 0.477)
-  );
+  background: radial-gradient(rgba(255, 255, 255, 0.48),
+      rgba(255, 0, 0, 0.441),
+      rgba(255, 255, 0, 0.467),
+      rgba(0, 128, 0, 0.477));
   margin: 20px auto;
   z-index: 1;
   height: 500px !important;
