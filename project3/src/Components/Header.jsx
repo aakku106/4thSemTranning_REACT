@@ -1,5 +1,8 @@
+import { useState } from "react"
 import { Link } from "react-router-dom"
 function Header() {
+  let [path, setPath] = useState(window.location.pathname);
+  console.log(window.location)
   return (
 
     <nav style={{ height: "8vh", width: "100vw", display: "flex", textAlign: "center", justifyContent: "space-evenly", backgroundColor: "white" }}>
@@ -7,12 +10,21 @@ function Header() {
       <div style={{ display: "flex", width: "20vw", justifyContent: "space-between" }}>
 
         <Link to="/"
-          style={{ fontSize: "20px" }}>Home</Link>
+          onClick={() => setPath('/')}
+          className={`${path == "/" ? "text-orange-500" : "text-blue-500"}`}
+          style={{ fontSize: "20px", textDecoration: "none" }}
+        >Home</Link>
         <Link to="/about"
 
-          style={{ fontSize: "20px" }}>About</Link>
+          onClick={() => setPath('/about')}
+          className={`${path == "/about" ? "text-orange-500" : "text-blue-500"}`}
+          style={{ fontSize: "20px" }}
+        >About</Link>
         <Link to="/contact"
-          style={{ fontSize: "20px" }}>Contact</Link>
+          onClick={() => setPath('/contact')}
+          className={`${path == "/contact" ? "text-orange-500" : "text-blue-500"}`}
+          style={{ fontSize: "20px" }}
+        >Contact</Link>
       </div>
       <button style={{ backgroundColor: "blue", color: "white", height: "45px" }}>Login</button>
     </nav>

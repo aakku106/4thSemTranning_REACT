@@ -5,6 +5,7 @@ import About from './Components/About.jsx'
 import Header from './Components/Header.jsx'
 import { PageNotFound } from './Components/PageNotFound.jsx'
 import { Routes, Route } from "react-router-dom"
+import "./Style/style.css"
 function MeroApp() {
   let [count, setCount] = useState(0)
   return (
