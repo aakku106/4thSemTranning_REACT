@@ -26,11 +26,16 @@ function App() {
   }
 
   useEffect(() => {
-    if (visible) {
+    let hide = (e) => {
+      if (input.current && !input.current.contains(e.target))
+        setVisible(false)
+    }
+    if (visible)
       input.current.focus();
-      window.addEventListener("mousedown", () => {
-        input.current.blur()
-      })
+    window.addEventListener("mousedown", hide)
+
+    return () => {
+      window.removeEventListener("mousedown", hide)
     }
   })
 
