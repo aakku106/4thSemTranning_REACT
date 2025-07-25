@@ -9,22 +9,22 @@ function Header() {
   console.log(window.location)
   return (
 
-    <nav style={{ height: "8vh", width: "100vw", display: "flex", textAlign: "center", justifyContent: "space-evenly", backgroundColor: "white" }}>
-      <div style={{ fontSize: "25px", fontWeight: "bold" }}>React_Router</div>
-      <div style={{ display: "flex", width: "20vw", justifyContent: "space-between" }}>
+    <nav style={{ display: "flex", textAlign: "center", justifyContent: "space-evenly" }}>
+      <div style={{ fontSize: "2em", fontWeight: "bold" }}>React_Router</div>
+      <div >
 
         <Link to="/"
-          className={`${path == "/" ? "text-orange-500" : "text-blue-500"}`}
-          style={{ fontSize: "20px", textDecoration: "none" }}
+          className={`${path == "/" ? "text-orange-500 bg-blue-400" : "text-blue-500"} `}
+          style={{ fontSize: `${path == "/" ? "1.5em" : "1em"}`, textDecoration: "none" }}
         >Home</Link>
         <Link to="/about"
 
-          className={`${path == "/about" ? "text-orange-500" : "text-blue-500"}`}
-          style={{ fontSize: "20px" }}
+          className={`${path == "/about" ? "text-orange-500 bg-blue-400" : "text-blue-500"} `}
+          style={{ fontSize: `${path == "/about" ? "1.5em" : "1em"}`, textDecoration: "none" }}
         >About</Link>
         <Link to="/contact"
-          className={`${path == "/contact" ? "text-orange-500" : "text-blue-500"}`}
-          style={{ fontSize: "20px" }}
+          className={`${path == "/contact" ? "text-orange-500 bg-blue-400" : "text-blue-500"}`}
+          style={{ fontSize: `${path == "/contact" ? "1.5em" : "1em"}`, textDecoration: "none" }}
         >Contact</Link>
       </div>
       <button style={{ backgroundColor: "blue", color: "white", height: "45px" }}>Login</button>

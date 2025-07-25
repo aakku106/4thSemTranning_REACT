@@ -1,1 +1,7 @@
 @import "tailwindcss";
+
+* {
+	border-radius: 12px;
+	padding: 1rem;
+	transition: all .3s ease-in-out;
+}
