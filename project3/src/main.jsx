@@ -1,12 +1,12 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import MeroApp from './meroApp.jsx'
-import { BrowserRouter } from 'react-router-dom'
+/** @format */
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <BrowserRouter >
-      <MeroApp />
-    </ BrowserRouter >
-  </StrictMode>,
-)
+import { createRoot } from "react-dom/client";
+import App from "./App.jsx";
+import { BrowserRouter } from "react-router-dom";
+import ReactDOM from "react-dom/client";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);
