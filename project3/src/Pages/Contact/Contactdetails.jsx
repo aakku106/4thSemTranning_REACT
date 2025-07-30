@@ -2,11 +2,15 @@
 
 import React from "react";
 import { contacts } from "./ContactData";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function Contactdetails() {
-  const { contactId } = useParams();
+  const { contactId } = useParams();  
   const contact = contacts.find((c) => c.id === parseInt(contactId));
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/contact");
+  };
 
   if (!contact) {
     return <div>Contact not found</div>;
@@ -18,6 +22,8 @@ function Contactdetails() {
       <p>ID: {contact.id}</p>
       <p>Name: {contact.name}</p>
       <p>Email: {contact.email}</p>
+
+      <button onClick={handleClick}>OKIII!!</button>
     </>
   );
 }
