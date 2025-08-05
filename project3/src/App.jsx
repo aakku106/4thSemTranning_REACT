@@ -43,6 +43,7 @@ function App() {
       <Parent />
       {/* react flow/ nested react component */}
       {/* props drilling  */}
+      {/* Next: Component reUsability */}
     </>
   );
 }
