@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 
 function Contact() {
   return (
-    <div>
-      <h2>Contacts</h2>
+    <div className="bg-red-200">
+      <h2 className="text-amber-50">Contacts</h2>
       {contacts.map((contact) => (
         <li key={contact.id}>
           ID: <Link to={`${contact.id}`}>{contact.id}</Link>

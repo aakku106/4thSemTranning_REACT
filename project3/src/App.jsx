@@ -14,6 +14,7 @@ import Admin from "./Pages/Dashboard/Settings/Admin";
 import Contact from "./Pages/Contact/Contact";
 import ContactLayout from "./Pages/Contact/Contactlayout";
 import Contactdetails from "./Pages/Contact/Contactdetails";
+import Parent from "./propsDrilling/Parent";
 function App() {
   return (
     <>
@@ -38,6 +39,10 @@ function App() {
           <Route path="admin" element={<Admin />} />
         </Route>
       </Routes>
+      {/* props drilling  */}
+      <Parent />
+      {/* react flow/ nested react component */}
+      {/* props drilling  */}
     </>
   );
 }
