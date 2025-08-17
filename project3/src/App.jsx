@@ -16,6 +16,7 @@ import ContactLayout from "./Pages/Contact/Contactlayout";
 import Contactdetails from "./Pages/Contact/Contactdetails";
 import Parent from "./propsDrilling/Parent";
 import UserCard from "./Components/Reusable_Component/UserCard";
+import SmartComponent from "./Components/SmartComponent/SmartComponent";
 function App() {
   return (
     <>
@@ -52,6 +53,8 @@ function App() {
       <UserCard name={"Aakku Samma"} age={5} email={"aakku@aakku.aakku"} />
       <UserCard name={"Aakku Samma"} age={5} email={"aakku@aakku.aakku"} />
       <UserCard name={"Aakku Samma"} age={5} email={"aakku@aakku.aakku"} />
+      {/* Smart / deumb comp  */}
+      <SmartComponent />
     </>
   );
 }
