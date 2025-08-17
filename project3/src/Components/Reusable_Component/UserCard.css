@@ -1,0 +1,24 @@
+/** @format */
+@import "tailwindcss";
+* {
+  /* margin: 1rem; */
+  /* padding: 1rem; */
+  transition: all 0.3s ease-in-out;
+  border-radius: 1.2rem;
+}
+
+.user-card {
+  margin: 1 1rem;
+  padding: 1rem;
+  &:hover {
+    transform: scale(1.03);
+  }
+  & h3 {
+    font-size: 1.2em;
+    margin: 1rem;
+  }
+  & p {
+    color: blueviolet;
+    margin: 1rem;
+  }
+}

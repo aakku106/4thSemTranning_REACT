@@ -15,6 +15,7 @@ import Contact from "./Pages/Contact/Contact";
 import ContactLayout from "./Pages/Contact/Contactlayout";
 import Contactdetails from "./Pages/Contact/Contactdetails";
 import Parent from "./propsDrilling/Parent";
+import UserCard from "./Components/Reusable_Component/UserCard";
 function App() {
   return (
     <>
@@ -44,6 +45,13 @@ function App() {
       {/* react flow/ nested react component */}
       {/* props drilling  */}
       {/* Next: Component reUsability */}
+      <UserCard name={"Aakku Samma"} age={5} email={"aakku@aakku.aakku"} />
+      <UserCard name={"Aakku Samma"} age={5} email={"aakku@aakku.aakku"} />
+      <UserCard name={"Aakku Samma"} age={5} email={"aakku@aakku.aakku"} />
+      <UserCard name={"Aakku Samma"} age={5} email={"aakku@aakku.aakku"} />
+      <UserCard name={"Aakku Samma"} age={5} email={"aakku@aakku.aakku"} />
+      <UserCard name={"Aakku Samma"} age={5} email={"aakku@aakku.aakku"} />
+      <UserCard name={"Aakku Samma"} age={5} email={"aakku@aakku.aakku"} />
     </>
   );
 }
