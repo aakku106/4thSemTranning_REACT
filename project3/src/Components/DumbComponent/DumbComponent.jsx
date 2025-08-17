@@ -7,7 +7,7 @@ function DumbComponent({ message, onchange }) {
     <>
       <h2>Dumb</h2>
       <h2>{message}</h2>
-      <button className="p-5" onClick={onchange}>
+      <button className="p-5 bg-amber-600 " onClick={onchange}>
         Change Message{" "}
       </button>
     </>
