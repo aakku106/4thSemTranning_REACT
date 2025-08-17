@@ -8,10 +8,10 @@
 }
 
 .user-card {
-  margin: 1 1rem;
+  margin: 1rem;
   padding: 1rem;
   &:hover {
-    transform: scale(1.03);
+    transform: scale(1.01);
   }
   & h3 {
     font-size: 1.2em;
