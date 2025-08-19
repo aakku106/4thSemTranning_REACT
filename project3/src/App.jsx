@@ -1,6 +1,6 @@
 /** @format */
 
-import { useEffect, useRef, useState } from "react";
+// import { useEffect, useRef, useState } from "react";
 import { NavBar } from "./Components/NavBar";
 import { Route, Router, Routes } from "react-router-dom";
 import { Post } from "./Pages/Blog/Posts";
@@ -18,6 +18,8 @@ import Parent from "./propsDrilling/Parent";
 import UserCard from "./Components/Reusable_Component/UserCard";
 import SmartComponent from "./Components/SmartComponent/SmartComponent";
 import Ecommerce from "./Components/EcommerceHW/Ecommerce";
+import CounterComponent from "./Components/CounterComponent";
+import UserList from "./Components/UserList";
 function App() {
   return (
     <>
@@ -43,20 +45,22 @@ function App() {
         </Route>
       </Routes>
       {/* props drilling  */}
-      <Parent />
+      {/* <Parent /> */}
       {/* react flow/ nested react component */}
       {/* props drilling  */}
       {/* Next: Component reUsability */}
+      {/* <UserCard name={"Aakku Samma"} age={5} email={"aakku@aakku.aakku"} />
       <UserCard name={"Aakku Samma"} age={5} email={"aakku@aakku.aakku"} />
       <UserCard name={"Aakku Samma"} age={5} email={"aakku@aakku.aakku"} />
       <UserCard name={"Aakku Samma"} age={5} email={"aakku@aakku.aakku"} />
       <UserCard name={"Aakku Samma"} age={5} email={"aakku@aakku.aakku"} />
       <UserCard name={"Aakku Samma"} age={5} email={"aakku@aakku.aakku"} />
-      <UserCard name={"Aakku Samma"} age={5} email={"aakku@aakku.aakku"} />
-      <UserCard name={"Aakku Samma"} age={5} email={"aakku@aakku.aakku"} />
+      <UserCard name={"Aakku Samma"} age={5} email={"aakku@aakku.aakku"} /> */}
       {/* Smart / deumb comp  */}
-      <SmartComponent />
-      <Ecommerce />
+      {/* <SmartComponent /> */}
+      {/* <Ecommerce /> */}
+      <CounterComponent />
+      <UserList />
     </>
   );
 }
