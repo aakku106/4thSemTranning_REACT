@@ -1,0 +1,13 @@
+/** @format */
+
+form,
+div,
+label,
+input {
+  padding: 1rem;
+  margin: 1rem;
+  background-color: rgba(48, 98, 121, 0.263);
+}
+input {
+  border: 1px solid khaki;
+}

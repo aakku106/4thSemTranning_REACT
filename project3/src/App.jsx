@@ -20,6 +20,7 @@ import SmartComponent from "./Components/SmartComponent/SmartComponent";
 import Ecommerce from "./Components/EcommerceHW/Ecommerce";
 import CounterComponent from "./Components/CounterComponent";
 import UserList from "./Components/UserList";
+import LoginFOrmHook from "./Components/ReactFormHook/LoginFOrmHook";
 function App() {
   return (
     <>
@@ -59,6 +60,7 @@ function App() {
       {/* Smart / deumb comp  */}
       {/* <SmartComponent /> */}
       {/* <Ecommerce /> */}
+      <LoginFOrmHook />
       <CounterComponent />
       <UserList />
     </>

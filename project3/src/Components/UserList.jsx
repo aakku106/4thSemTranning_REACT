@@ -34,7 +34,9 @@ function UserList() {
         <tbody>
           {data.map((user) => (
             <tr key={user.id - 2} className="p-5">
+              {/* <tr key={index} className="p-5"> */}
               <td key={user.id + 1} className="p-2">
+                {/* <td key={index} className="p-2"> */}
                 {user.id}
               </td>
               <td key={user.id + 2} className="p-2">
