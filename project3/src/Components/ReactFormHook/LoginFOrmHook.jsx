@@ -25,7 +25,9 @@ function LoginFOrmHook() {
             type="email"
             {...register("email", { required: "Email is Required" })}
           />
-          {errors.email && <p>{errors.email.message}</p>}
+          {errors.email && (
+            <p className="text-red-800">{errors.email.message}</p>
+          )}
         </div>
         <div>
           <label htmlFor="password">Password</label>
@@ -33,7 +35,9 @@ function LoginFOrmHook() {
             type="password"
             {...register("password", { required: "Passwprd is required" })}
           />
-          {errors.password && <p>{errors.password.message}</p>}
+          {errors.password && (
+            <p className="text-red-800">{errors.password.message}</p>
+          )}
         </div>
         <button type="submit">Login</button>
       </form>
