@@ -17,8 +17,10 @@ function FetchUsers() {
       <ul>
         {user.map((data, index) => (
           <li key={index}>
-            The name is: {data.name}
-            where i live ?? {data.address.street}
+            The name is: <b>{data.name}</b>
+            where i live ?? <b>{data.address.street}</b>
+            wot i Do ?? :<b>{data.phone}</b>
+            where i work ??? : <b>{data.company.name}</b>
           </li>
         ))}
       </ul>
