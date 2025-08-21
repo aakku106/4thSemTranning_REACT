@@ -22,6 +22,7 @@ import CounterComponent from "./Components/CounterComponent";
 import UserList from "./Components/UserList";
 import LoginFOrmHook from "./Components/ReactFormHook/LoginFOrmHook";
 import FetchUsers from "./fetchApi/FetchUsers";
+import AxiosPost from "./fetchApi/AxiosPost";
 function App() {
   return (
     <>
@@ -61,7 +62,9 @@ function App() {
       {/* Smart / deumb comp  */}
       {/* <SmartComponent /> */}
       {/* <Ecommerce /> */}
+
       <FetchUsers />
+      <AxiosPost />
       <LoginFOrmHook />
       <CounterComponent />
       <UserList />

@@ -3,7 +3,10 @@
 table,
 tr,
 td,
+th,
 tbody,
 thead {
-  border: 1px solid;
+  border: 2px solid khaki;
+  padding: 0.5rem;
+  margin: auto;
 }
