@@ -17,11 +17,10 @@ function LoginFOrmHook() {
   };
   return (
     <div>
-      <h1>React form Hook</h1>
-      <h2>Login Form Using React Hook Form</h2>
-      <form action="" onSubmit={handleSubmit(onSubmit)}>
+      <h1>Login Form Using React Hook Form</h1>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <label htmlFor="">Email</label>
+          <label htmlFor="email">Email</label>
           <input
             type="email"
             {...register("email", { required: "Email is Required" })}
@@ -29,7 +28,7 @@ function LoginFOrmHook() {
           {errors.email && <p>{errors.email.message}</p>}
         </div>
         <div>
-          <label htmlFor="">Password</label>
+          <label htmlFor="password">Password</label>
           <input
             type="password"
             {...register("password", { required: "Passwprd is required" })}

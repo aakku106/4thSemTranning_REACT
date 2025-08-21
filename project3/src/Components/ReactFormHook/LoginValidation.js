@@ -3,10 +3,6 @@
 import React from "react";
 import { z } from "zod";
 
-// function LoginValidation() {
-//   return <div>LoginValidation</div>;
-// }
-
 export const loginSchema = z.object({
   email: z
     .string()
