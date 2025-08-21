@@ -3,13 +3,15 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import "./Login.css";
+import { loginSchema } from "./LoginValidation";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 function LoginFOrmHook() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({ resolver: zodResolver(loginSchema) });
   const onSubmit = (data) => {
     console.log(data);
   };
