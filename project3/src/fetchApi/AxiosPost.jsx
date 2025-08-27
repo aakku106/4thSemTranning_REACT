@@ -38,9 +38,9 @@ function AxiosPost() {
         <tbody>
           {post.map((data, index) => (
             <tr key={index}>
-              <td key={index}> {data.userId}</td>
-              <td key={index}>{data.id}</td>
-              <td key={index}>{data.title}</td>
+              <td> {data.userId}</td>
+              <td>{data.id}</td>
+              <td>{data.title}</td>
             </tr>
           ))}
         </tbody>
