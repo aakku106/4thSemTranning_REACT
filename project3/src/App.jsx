@@ -24,6 +24,7 @@ import LoginFOrmHook from "./Components/ReactFormHook/LoginFOrmHook";
 import FetchUsers from "./fetchApi/FetchUsers";
 import AxiosPost from "./fetchApi/AxiosPost";
 import ToDos from "./fetchApi/ToDos";
+import ReactMemoExample from "./Optimization/ReactMemoExample";
 function App() {
   return (
     <>
@@ -64,13 +65,16 @@ function App() {
       {/* <SmartComponent /> */}
       {/* <Ecommerce /> */}
 
-      <Comment />
-      <ToDos />
+      <ReactMemoExample />
+
+      {/* <Comment /> */}
+
+      {/* <ToDos /> */}
       {/* <FetchUsers /> */}
-      <AxiosPost />
-      <LoginFOrmHook />
-      <CounterComponent />
-      <UserList />
+      {/* <AxiosPost /> */}
+      {/* <LoginFOrmHook /> */}
+      {/* <CounterComponent /> */}
+      {/* <UserList /> */}
     </>
   );
 }
