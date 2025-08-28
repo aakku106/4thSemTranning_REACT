@@ -16,14 +16,19 @@ function AxiosPost() {
         console.log("Error occurred: ", error);
       }); // Error handling
   }, []);
+
+  const handleDelete = (id) => {
+    setPosts(posts.filter((post) => post.id !== id));
+  };
+
   return (
     <div>
       <h1>AxiosPost</h1>
-      <ul>
+      {/* <ul>
         {post.map((data) => (
           <li key={data.id}> {data.title} </li>
         ))}
-      </ul>
+      </ul> */}
       <table
         style={{
           textAlign: "center",
@@ -33,6 +38,7 @@ function AxiosPost() {
             <th>UserID</th>
             <th>ID</th>
             <th>Title</th>
+            <th>DELETE</th>
           </tr>
         </thead>
         <tbody>
@@ -41,6 +47,7 @@ function AxiosPost() {
               <td> {data.userId}</td>
               <td>{data.id}</td>
               <td>{data.title}</td>
+              <td> </td>
             </tr>
           ))}
         </tbody>

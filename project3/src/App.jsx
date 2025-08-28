@@ -2,7 +2,7 @@
 
 // import { useEffect, useRef, useState } from "react";
 import { NavBar } from "./Components/NavBar";
-import { Route, Router, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { Post } from "./Pages/Blog/Posts";
 import { BlogLayout } from "./Pages/Blog/BlogLayout";
 import { PostDetail } from "./Pages/Blog/PostDetail";
@@ -23,6 +23,7 @@ import UserList from "./Components/UserList";
 import LoginFOrmHook from "./Components/ReactFormHook/LoginFOrmHook";
 import FetchUsers from "./fetchApi/FetchUsers";
 import AxiosPost from "./fetchApi/AxiosPost";
+import ToDos from "./fetchApi/ToDos";
 function App() {
   return (
     <>
@@ -63,7 +64,9 @@ function App() {
       {/* <SmartComponent /> */}
       {/* <Ecommerce /> */}
 
-      <FetchUsers />
+      <Comment />
+      <ToDos />
+      {/* <FetchUsers /> */}
       <AxiosPost />
       <LoginFOrmHook />
       <CounterComponent />
