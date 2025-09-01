@@ -24,7 +24,7 @@ export const UseMemoExample = () => {
       />
       <p>Total Result: {filteredUsers.length}</p>
       <ul>
-        {filteredUsers.slice(0, 20).map((user) => (
+        {filteredUsers.slice(0, 200).map((user) => (
           <li key={user}>{user}</li>
         ))}
       </ul>

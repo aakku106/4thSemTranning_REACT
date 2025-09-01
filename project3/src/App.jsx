@@ -26,6 +26,7 @@ import AxiosPost from "./fetchApi/AxiosPost";
 import ToDos from "./fetchApi/ToDos";
 import ReactMemoExample from "./Optimization/ReactMemoExample";
 import { UseMemoExample } from "./Optimization/UseMemoExample";
+import UseCallbackExample from "./Optimization/UseCallbackExample";
 
 function App() {
   return (
@@ -67,7 +68,8 @@ function App() {
       {/* <SmartComponent /> */}
       {/* <Ecommerce /> */}
 
-      <UseMemoExample />
+      <UseCallbackExample />
+      {/* <UseMemoExample /> */}
 
       {/* <ReactMemoExample /> */}
 
